@@ -6,7 +6,6 @@ body {
   font-weight: 300; }
 
   #section-contact{
-    
    background-color:#254e58;
   }
 #section-services{
@@ -15,6 +14,7 @@ body {
 .site-footer{
   background-color: #d3d3d3;
 }
+
 .p1-gradient-bg, .thumb .overlay-bg {
   background: -moz-linear-gradient(0deg, #8490ff 0%, #62bdfc 100%);
   background: -webkit-linear-gradient(0deg, #8490ff 0%, #62bdfc 100%);
