@@ -136,6 +136,7 @@
               <div class="row intro-text align-items-center justify-content-center">
                 <p style="color: #ffff"><a class="smoothscroll btn btn-primary px-4 py-3" onclick="validateForm()">Send</a></p>
                 </div> 
+
                 <div class="status" id="status"></div>
 
         </div>
@@ -165,6 +166,48 @@
         </div>
       </div>
     </footer>
+
+<script>
+  function validateForm() {
+  var name =  document.getElementById('name').value;
+  var email =  document.getElementById('email').value;
+  var subject =  document.getElementById('subject').value;
+  var message =  document.getElementById('message').value;
+
+  if (name == "") {
+      document.getElementById('status').innerHTML = "Name cannot be empty";
+      return false;
+  }
+ 
+  if (email == "") {
+      document.getElementById('status').innerHTML = "Email cannot be empty";
+      return false;
+
+  }
+   else 
+  {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!re.test(email))
+      {
+          document.getElementById('status').innerHTML = "Email format invalid";
+          return false;
+      }
+  }
+ 
+  if (subject == "") {
+      document.getElementById('status').innerHTML = "Subject cannot be empty";
+      return false;
+  }
+ 
+  if (message == "") {
+      document.getElementById('status').innerHTML = "Message cannot be empty";
+      return false;
+  }
+  document.getElementById('status').innerHTML = "Sending...";
+  document.getElementById('contact-form').submit();
+
+  }
+</script>
 
 
 </body>
