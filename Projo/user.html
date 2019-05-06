@@ -80,7 +80,7 @@
 
         <!--Grid column-->
         <div class="col-md-12 mb-md-7 mb-7">
-            <form id="contact-form" name="contact-form" action="#" method="POST">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST" onsubmit="return validateForm()">
 
                 <!--Grid row-->
                 <div class="row">
@@ -133,10 +133,11 @@
                 <!--Grid row-->
 
             </form>
+              <div class="row intro-text align-items-center justify-content-center">
+                <p style="color: #ffff"><a class="smoothscroll btn btn-primary px-4 py-3" onclick="validateForm()">Send</a></p>
+                </div> 
+                <div class="status" id="status"></div>
 
-             <div class="row intro-text align-items-center justify-content-center">
-                <p style="color: #ffff"><a class="smoothscroll btn btn-primary px-4 py-3">Send</a></p>
-            </div>
         </div>
         <!--Grid column-->
 
