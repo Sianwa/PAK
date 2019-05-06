@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign up</title>
+	<link rel ="stylesheet" href ="css/global.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body >
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">PAK</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="landingPage.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="landingPage.html#section-services">How it Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="landingPage.html#section-categories">Categories</a></li>
+            <li class="nav-item"><a class="nav-link" href="landingPage.html#section-contact">Sign Up</a></li>
+          </ul>
+        </div>
+</nav>
+
+ <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign Up</h5>
+            <form class="form-signin">
+              
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+              <div class="form-label-group">
+                <input type="password" id="pass" class="form-control" placeholder="Confirm Password" required>
+                <label for="pass"> Confirm Password</label>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button>
+               <hr class="my-4">  
+               <p><a href="login.html">Already have an account? Sign In.</a></p>            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDquApmcOMA9xeQYzv-6-tGhMv-Q8HyPxs",
+    authDomain: "fir-web-learn-bb47c.firebaseapp.com",
+    databaseURL: "https://fir-web-learn-bb47c.firebaseio.com",
+    projectId: "fir-web-learn-bb47c",
+    storageBucket: "fir-web-learn-bb47c.appspot.com",
+    messagingSenderId: "196632649864"
+  };
+  firebase.initializeApp(config);
+</script> 
+<script>
+    
+    function Signup(){
+        var email = document.getElementById("inputEmail").value;
+        var password = document.getElementById("inputPassword").value;
+        var pas = document.getElementById("inputPassword").value;
+        var pass = document.getElementById("pass).value;
+        //var name = document.getElementById("name").value;
+       
+
+        
+        if (pas != pass){
+            window.alert("Passwords do not match");
+        }
+        else if (pas.length < 8){
+            window.alert("Passwords must have more than 8 characters");
+        }
+        else{
+            firebase.auth().createUserWithEmailAndPassword(email, password).then( user => {
+    if(user) {
+    window.location = 'log.html'; //After successful login, user will be redirected to home.html
+    }
+}).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            window.alert("Error " +errorMessage)
+});
+        } 
+   
+    }
+    
+</script>
+
+
+</body>
+</html>
