@@ -4,6 +4,7 @@
 	<title>Login</title>
 	<link rel ="stylesheet" href ="css/global.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
 </head>
 <body >
 
@@ -59,24 +60,14 @@
       </div>
     </div>
   </div>
-<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-  
+
+
+  <script src ="firebase.js"></script>
   <script src="/__/firebase/5.11.1/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
   <script src="/__/firebase/5.11.1/firebase-auth.js"></script>
   <script src="/__/firebase/5.11.1/firebase-firestore.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AlzaSyDquApmcOMA9xeQYzv-6-tGhMv-Q8HyPxs",
-    authDomain: "fir-web-learn-bb47c.firebaseapp.com",
-    databaseURL: "https://fir-web-learn-bb47c.firebaseio.com",
-    projectId: "fir-web-learn-bb47c",
-    storageBucket: "fir-web-learn-bb47c.appspot.com",
-    messagingSenderId: "196632649864"
-  };
-  firebase.initializeApp(config);
-</script>
+
 <script >
 // This is for log in
     function Login(){
