@@ -1,19 +1,59 @@
-var app_firebase={};
-(function(){
+function register(){
 
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDquApmcOMA9xeQYzv-6-tGhMv-Q8HyPxs",
-    authDomain: "fir-web-learn-bb47c.firebaseapp.com",
-    databaseURL: "https://fir-web-learn-bb47c.firebaseio.com",
-    projectId: "fir-web-learn-bb47c",
-    storageBucket: "fir-web-learn-bb47c.appspot.com",
-    messagingSenderId: "196632649864",
-    appId: "1:196632649864:web:d6f9ecdaf3b4a058"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+        var email = document.getElementById("inputEmail").value;
+        var password = document.getElementById("inputPassword").value;
+        var pas = document.getElementById("inputPassword").value;
+        var pass = document.getElementById("pass").value;
 
-app_firebase = firebase;
-})()
+if (pas != pass){
+                 window.alert("Passwords do not match");
+                }
+        else if (pas.length < 8){
+            window.alert("Passwords must have more than 8 characters");
+              }
+          else
+          {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+        } 
+   
+}
+
+// This is for log in
+function Login(){
+    var email = document.getElementById("inputEmail").value;
+    var password = document.getElementById("inputPassword").value;
+        
+    firebase.auth().signInWithEmailAndPassword(email, password).then( user => {
+    if(user) {
+    window.location.href = 'landingPage.html'; //After successful login, user will be redirected to home.html
+    }
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+        window.alert("Error " +errorMessage)
+  // ...
+});
+}
+
+  // this is for reset password
+function Respas(){
+        var auth = firebase.auth();
+       var emailAddress = document.getElementById("email").value;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  // Email sent.
+   window.alert("Check your email");
+}).catch(function(error) {
+  // An error happened.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+   window.alert("Error " +errorMessage)
+});
+}
 

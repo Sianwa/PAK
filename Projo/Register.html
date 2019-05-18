@@ -55,7 +55,7 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="Signup()">Sign Up</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="register()">Sign Up</button>
                <hr class="my-4">  
                <p><a href="login.html">Already have an account? Sign In.</a></p>            
             </form>
@@ -65,52 +65,27 @@
     </div>
   </div>
 
-<script src ="firebase.js"></script>
-  <script src="/__/firebase/5.11.1/firebase-app.js"></script>
+<!-- <script src ="js/firebase.js"></script>--->
   <!-- Add Firebase products that you want to use -->
-  <script src="/__/firebase/5.11.1/firebase-auth.js"></script>
-  <script src="/__/firebase/5.11.1/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script>
 
 <script>
-    
-    function Signup(){
-        var email = document.getElementById("inputEmail").value;
-        var password = document.getElementById("inputPassword").value;
-        var pas = document.getElementById("inputPassword").value;
-        var pass = document.getElementById("pass").value;
-/*   if (pas != pass){
-            window.alert("Passwords do not match");
-        }
-        else if (pas.length < 8){
-            window.alert("Passwords must have more than 8 characters");
-        }
-        else{
-            firebase.auth().createUserWithEmailAndPassword(email, password).then( user => {
-    if(user) {
-    window.location = 'landingPage.html'; //After successful login, user will be redirected to home.html
-    }
-}).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            window.alert("Error " +errorMessage)
-});
-        } 
-   */
-
- firebase.auth().createUserWithEmailAndPassword(email, password).then( user => {
-    if(user) {
-    window.location = 'landingPage.html'; //After successful login, user will be redirected to home.html
-    }
-}).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            window.alert("Error " +errorMessage)
-
-    }
-    
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDquApmcOMA9xeQYzv-6-tGhMv-Q8HyPxs",
+    authDomain: "fir-web-learn-bb47c.firebaseapp.com",
+    databaseURL: "https://fir-web-learn-bb47c.firebaseio.com",
+    projectId: "fir-web-learn-bb47c",
+    storageBucket: "fir-web-learn-bb47c.appspot.com",
+    messagingSenderId: "196632649864",
+    appId: "1:196632649864:web:d6f9ecdaf3b4a058"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
 </script>
+<script src = "js/firebase.js"></script>
 
 
 </body>
