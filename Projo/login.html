@@ -5,9 +5,8 @@
 	<link rel ="stylesheet" href ="css/global.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
   
- <script src = "js/firebase.js"></script>
 </head>
-<body >
+<body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
@@ -39,22 +38,22 @@
 
         <form class="form-signin">
               <div class="form-label-group">
-                <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <label for="inputEmail">Email address</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Password</label>
               </div>
 
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
               <button onclick = "Login()" class="btn btn-lg btn-primary btn-block text-uppercase" >Sign in</button>
                <hr class="my-4">
-              <button onclick = "Respas()"class="btn btn-lg btn-light btn-block text-uppercase" >Forgot Password?</button>   
+              <button onclick = "Respas()" class="btn btn-lg btn-light btn-block text-uppercase" >Forgot Password?</button>   
        </form>
 
           </div>
@@ -65,7 +64,7 @@
 
 
   <!-- <script src ="js/firebase.js"></script>--->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
   <!-- Add Firebase products that you want to use -->
 
 <script>
@@ -76,15 +75,14 @@
     databaseURL: "https://fir-web-learn-bb47c.firebaseio.com",
     projectId: "fir-web-learn-bb47c",
     storageBucket: "fir-web-learn-bb47c.appspot.com",
-    messagingSenderId: "196632649864",
-    appId: "1:196632649864:web:d6f9ecdaf3b4a058"
+    messagingSenderId: "196632649864"
 
 
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  
 </script>
+<script src = "js/firebase.js"></script>
 
 </body>
 </html>
