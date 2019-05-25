@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
 </head>
 <body>
 
@@ -55,7 +56,7 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="register()">Sign Up</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase"  onclick="register()">Sign Up</button>
                <hr class="my-4">  
                <p><a href="login.html">Already have an account? Sign In.</a></p> 
 
@@ -66,9 +67,6 @@
     </div>
   </div>
 
-<!-- <script src ="js/firebase.js"></script>--->
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
