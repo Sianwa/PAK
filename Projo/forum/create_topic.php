@@ -2,11 +2,6 @@
 include 'connect.php';
 include 'header.php';
 
-echo '<tr>';
-    echo '<td class="leftpart">';
-        echo '<h3><a href="topic.php?id=">Go to Topics Page</a></h3>';
-        // In Case We want users to add categories quicker but just an if as of now  <input type="submit" value="Add category" /> 
-    echo '</td>';
 
 echo '<h2>Create a Topic</h2>';
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)

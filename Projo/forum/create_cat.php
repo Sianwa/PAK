@@ -1,13 +1,6 @@
 <?php
 include 'connect.php';
-include 'header.php';
-
-echo '<tr>';
-    echo '<td class="leftpart">';
-        echo '<h3><a href="category.php?id=">Go to Categories Page</a></h3>';
-        // In Case We want users to add categories quicker but just an if as of now  <input type="submit" value="Add category" /> 
-    echo '</td>';
-   
+include 'header.php';   
     
     echo '<h2>Create a Category</h2>';
     

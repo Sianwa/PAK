@@ -94,7 +94,14 @@ h3 {margin: 0; padding: 0;}
 .rightpart {
     width: 30%;
 }
+.left {
+    width: 30%;
+}
  
+.right {
+    width: 70%;
+} 
+
 .small {
     font-size: 75%;
     color: #373737;
