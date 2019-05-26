@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2019 at 09:21 PM
+-- Generation Time: May 27, 2019 at 12:49 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -34,6 +34,15 @@ CREATE TABLE `categories` (
   `cat_description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_description`) VALUES
+(6, 'Rules', 'Forum Rules:\r\nNo Self-Advertising\r\nNo Spamming\r\netc\r\n'),
+(7, 'Members', 'All Current Members in our Community\r\n'),
+(9, 'Fam', 's');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +56,29 @@ CREATE TABLE `posts` (
   `post_topic` int(8) NOT NULL,
   `post_by` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `post_content`, `post_date`, `post_topic`, `post_by`) VALUES
+(2, 'No Spamming other users with messages.\r\n', '2019-05-20 09:37:49', 3, 3),
+(9, 'Rules Suck', '2019-05-26 22:39:26', 3, 3),
+(10, 'Yeet', '2019-05-26 22:41:18', 3, 3),
+(12, 'Finally\r\n', '2019-05-26 23:19:28', 3, 3),
+(13, 'Lader Hosen', '2019-05-26 23:26:47', 5, 3),
+(14, 'Increasing the rules boiis', '2019-05-27 00:33:21', 6, 3),
+(15, 'SSSSSSSSs', '2019-05-27 00:33:38', 3, 3),
+(24, 'SSSSSSSS', '2019-05-27 01:04:51', 6, 3),
+(25, 'a', '2019-05-27 01:05:51', 7, 3),
+(26, 'AAA', '2019-05-27 01:05:56', 7, 3),
+(27, 'sss', '2019-05-27 01:08:02', 8, 4),
+(28, 'Hello', '2019-05-27 01:10:55', 3, 4),
+(29, 'he', '2019-05-27 01:11:22', 3, 4),
+(30, 'sss', '2019-05-27 01:30:52', 9, 3),
+(31, 's', '2019-05-27 01:31:15', 9, 3),
+(32, 'a', '2019-05-27 01:31:36', 9, 4),
+(33, 's', '2019-05-27 01:31:47', 9, 4);
 
 -- --------------------------------------------------------
 
@@ -62,6 +94,18 @@ CREATE TABLE `topics` (
   `topic_by` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `topics`
+--
+
+INSERT INTO `topics` (`topic_id`, `topic_subject`, `topic_date`, `topic_cat`, `topic_by`) VALUES
+(3, 'Rule 1', '2019-05-20 09:37:49', 6, 3),
+(5, 'VIP', '2019-05-26 23:26:47', 7, 3),
+(6, 'More Rules', '2019-05-27 00:33:21', 6, 3),
+(7, 'WAA', '2019-05-27 01:05:51', 6, 3),
+(8, 'sss', '2019-05-27 01:08:02', 6, 4),
+(9, 'sss', '2019-05-27 01:30:52', 9, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +120,14 @@ CREATE TABLE `users` (
   `user_date` datetime DEFAULT NULL,
   `user_level` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_date`, `user_level`) VALUES
+(3, 'Ace', 'a6bfc35250672f309829b503a7d8cde05c3b7f4d', 'firefist@gmail.com', '2019-05-18 13:52:56', 1),
+(4, 'James', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'jamesbay@abc.com', '2019-05-27 01:07:30', 0);
 
 --
 -- Indexes for dumped tables
@@ -119,25 +171,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
