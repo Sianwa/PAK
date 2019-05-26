@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+   <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
@@ -29,7 +31,8 @@
             <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-services">How it Works</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-categories">Categories</a></li>
-            <li class="nav-item"><a class="nav-link" href="Register.html">Sign Up</a></li>
+            <button type="button" class="btn btn-light" onclick="googleSignin()">
+                Sign In</button>
           </ul>
         </div>
       </div>
@@ -46,6 +49,28 @@
         </div>
       </div>
     </section>
+    <!------------------------------popup modal------------------------------>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
      <!-- ---------------------------section ---------------------------------->
 
       <section class="site-section border-top pb-0"  id="section-services">
@@ -195,6 +220,41 @@
     </footer>
 
 
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
+    authDomain: "pak-hci.firebaseapp.com",
+    databaseURL: "https://pak-hci.firebaseio.com",
+    projectId: "pak-hci",
+    storageBucket: "pak-hci.appspot.com",
+    messagingSenderId: "714721382084",
+    appId: "1:714721382084:web:ce0e4e9e51394a10"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+function googleSignin() {
+   firebase.auth()
+   
+   .signInWithPopup(provider).then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+    
+      console.log(token)
+      console.log(user)
+   }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    
+      console.log(error.code)
+      console.log(error.message)
+   });
+}
+</script>
 
 </body>
 </html>
