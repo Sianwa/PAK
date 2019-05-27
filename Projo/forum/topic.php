@@ -7,9 +7,13 @@ if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true)
     //the user is signed in
     if($_SERVER['REQUEST_METHOD'] != 'POST')
     {   
-        //$sql = "SELECT  `topic_id`, `topic_subject` FROM `topics` WHERE `topic_id` = '" . mysqli_real_escape_string($con,$_GET['id'])."';";
-        //$result = mysqli_query($con,$sql);
-        $sql ="SELECT topics.topic_id, topics.topic_subject, posts.post_topic, posts.post_content, posts.post_date, posts.post_by, users.user_id, users.user_name FROM posts LEFT JOIN users ON posts.post_by = users.user_id INNER JOIN topics on topics.topic_id = posts.post_topic WHERE posts.post_topic = '" . mysqli_real_escape_string($con, $_GET['id'])."';";       
+        $sql ="SELECT topics.topic_id, 
+        topics.topic_subject, posts.post_topic, posts.post_content, 
+        posts.post_date, posts.post_by, users.user_id, 
+        users.user_name FROM posts LEFT JOIN users ON
+         posts.post_by = users.user_id INNER JOIN topics on 
+         topics.topic_id = posts.post_topic 
+         WHERE posts.post_topic = '" . mysqli_real_escape_string($con, $_GET['id'])."';";       
         $result=mysqli_query($con,$sql);
         $data   = $result->fetch_all(MYSQLI_ASSOC);
 
