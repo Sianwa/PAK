@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
@@ -168,6 +170,22 @@
     </footer>
 
 <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
+    authDomain: "pak-hci.firebaseapp.com",
+    databaseURL: "https://pak-hci.firebaseio.com",
+    projectId: "pak-hci",
+    storageBucket: "pak-hci.appspot.com",
+    messagingSenderId: "714721382084",
+    appId: "1:714721382084:web:ce0e4e9e51394a10"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script>
   function validateForm() {
   var name =  document.getElementById('name').value;
   var email =  document.getElementById('email').value;
@@ -201,12 +219,26 @@
  
   if (message == "") {
       document.getElementById('status').innerHTML = "Message cannot be empty";
-      return false;
+      return false; 
   }
-  document.getElementById('status').innerHTML = "Sending...";
-  document.getElementById('contact-form').submit();
+  else{
+      //check if user is signed in
+        firebase.auth().onAuthStateChanged(user=>{
+              if(user){
+                    console.log('welcome');
+                     document.getElementById('status').innerHTML = "Sending...";
+                     document.getElementById('contact-form').submit();
+                      }
+                        else {
+                          window.alert("You must login first")
+                            console.log('null');
+                              }
+
+                                                });  
 
   }
+
+ }
 </script>
 
 

@@ -33,6 +33,10 @@
             <li class="nav-item"><a class="nav-link" href="#section-categories">Categories</a></li>
             <button type="button" class="btn btn-light" onclick="googleSignin()">
                 Sign In</button>
+                <form  class="form-inline my-2 my-lg-0" id="user_name" >
+                     <span style="padding-left: 100px; color: #ffff; padding-right: 20px;" class="navbar-text">You are Logged In</span>
+                      <button " type="button" class="btn btn-light" onclick="googleSignout()">Logout</button>
+                 </form>
           </ul>
         </div>
       </div>
@@ -234,8 +238,25 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
+
 <script>
   var provider = new firebase.auth.GoogleAuthProvider();
+
+  //check if user is signed in
+        firebase.auth().onAuthStateChanged(user=>{
+              if(user){
+                   //check if user is signed in
+                document.getElementById('user_name').style.display = "block"; 
+
+                      }
+                        else {
+                            console.log('null');
+                             document.getElementById('user_name').style.display = "none"; 
+
+                              }
+
+                                                });  
+
 
 function googleSignin() {
    firebase.auth()
@@ -252,6 +273,16 @@ function googleSignin() {
     
       console.log(error.code)
       console.log(error.message)
+   });
+}
+
+function googleSignout() {
+   firebase.auth().signOut()
+  
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')  
    });
 }
 </script>
