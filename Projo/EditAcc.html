@@ -1,48 +1,6 @@
-<html>
+
 <head>
-    <style>
-   
-#message {
-  display:none;
-  background: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
-}
-
-#message p {
-  padding: 10px 35px;
-  font-size: 18px;
-}
-
-
-.valid {
-  color: green;
-}
-
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: "✔";
-}
-
-
-.invalid {
-  color: red;
-}
-
-.invalid:before {
-  position: relative;
-  left: -35px;
-  content: "✖";
-}
-    </style>
-    
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-    
 </head>
 <body>
       <div class="container">
@@ -52,7 +10,7 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-         
+          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
           <h6>Upload a different photo...</h6>
           
           <input type="file" class="form-control">
@@ -72,13 +30,13 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="Jane">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="Bishop">
             </div>
           </div>
           <div class="form-group">
@@ -90,7 +48,7 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="janesemail@gmail.com">
             </div>
           </div>
         
@@ -98,36 +56,21 @@
           <div class="form-group">
             <label class="col-md-3 control-label">Username:</label>
             <div class="col-md-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="janeuser">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" id = "psw" type="password" value="">
+              <input class="form-control" type="password" value="11111122333">
             </div>
           </div>
-            
-                <div id="message">
-  <h3>Password must contain the following:</h3>
-  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  <p id="number" class="invalid">A <b>number</b></p>
-  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-</div>
-            
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" id = "cpsw" type="password" value="">
+              <input class="form-control" type="password" value="11111122333">
             </div>
           </div>
-            
-                <div id="message2">
-  
-  <p id="match" class="invalid">A <b>Matching</b> password</p>
-</div>
-            
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
@@ -140,130 +83,5 @@
       </div>
   </div>
 </div>
-
-    
-    <script>
-var pass = document.getElementById("psw");
-var cpass = document.getElementById("cpsw");
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
-var match = document.getElementById("match");
-
-// When the user clicks on the password field, show the message box
-pass.onfocus = function() {
-  document.getElementById("message").style.display = "block";
-}
-
-// When the user clicks outside of the password field, hide the message box
-pass.onblur = function() {
-  document.getElementById("message").style.display = "none";
-}
-
-// When the user clicks on the confirm password field, show the message box
-cpass.onfocus = function() {
-  document.getElementById("message2").style.display = "block";
-}
-
-// When the user clicks outside of the password field, hide the message box
-cpass.onblur = function() {
-  document.getElementById("message2").style.display = "none";
-}
-
-
-// When the user starts to type something inside the password field
-pass.onkeyup = function() {
-  // Validate lowercase letters
-  var lowerCaseLetters = /[a-z]/g;
-  if(pass.value.match(lowerCaseLetters)) { 
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-}
-
-  // Validate capital letters
-  var upperCaseLetters = /[A-Z]/g;
-  if(pass.value.match(upperCaseLetters)) { 
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
-  }
-
-  // Validate numbers
-  var numbers = /[0-9]/g;
-  if(pass.value.match(numbers)) { 
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }
-
-  // Validate length
-  if(pass.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }
-}
-
-// When the user starts to type something inside the confirm password field
-cpass.onkeyup = function() {
-     if(cpass.value.match(document.getElementById("psw"))&&cpass.value.length >= 8) { 
-    match.classList.remove("invalid");
-    match.classList.add("valid");
-  } else {
-    match.classList.remove("valid");
-    match.classList.add("invalid");
-}
-
-    
-}
-</script>
-
-    
-    <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
-    authDomain: "pak-hci.firebaseapp.com",
-    databaseURL: "https://pak-hci.firebaseio.com",
-    projectId: "pak-hci",
-    storageBucket: "pak-hci.appspot.com",
-    messagingSenderId: "714721382084",
-    appId: "1:714721382084:web:ce0e4e9e51394a10"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-    
-<script>
-  var provider = new firebase.auth.GoogleAuthProvider();
-
-function googleSignin() {
-   firebase.auth()
-   
-   .signInWithPopup(provider).then(function(result) {
-      var token = result.credential.accessToken;
-      var user = result.user;
-    
-      console.log(token)
-      console.log(user)
-   }).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    
-      console.log(error.code)
-      console.log(error.message)
-   });
-}
-</script>
+<hr>
     </body>
-</html>
