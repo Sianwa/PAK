@@ -5,9 +5,11 @@ document.getElementById('EditAcc').addEventListener('submit', formSubmit);
 function formSubmit(e) {
   e.preventDefault();
   // Get Values from the DOM
-  let name = document.querySelector('#name').value;
+  let fname = document.querySelector('#fname').value;
+  let lname = document.querySelector('#lname').value;
+  let  com= document.querySelector('#com').value;
+  let  bio= document.querySelector('#bio').value;
   let email = document.querySelector('#email').value;
-  let password = document.querySelector('#password').value;
-  let bio = document.querySelector('#bio').value;
-  let job = document.querySelector('#job').value;
-  let interest = document.querySelector('#interest').value;
+  let uname = document.querySelector('#uname').value;
+  let pass = document.querySelector('#pass').value;
+  let cpass = document.querySelector('#cpass').value;
