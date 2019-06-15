@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
@@ -63,6 +65,158 @@
     <div class="section-heading text-center">
               <h2><strong>Portfolio</strong></h2>
             </div>
+
+                                <div class="filters-content">
+                        <div class="row grid">
+                            <div class="single-portfolio col-sm-4 all mockup">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+                    <a href="photographers.html" target="_blank">              
+                       <img class="image img-fluid" src="images/video.jpg" alt="">
+
+                    </a>   
+                                </div>
+                  <a href="images/video.jpg" class="img-pop-up">  
+                    <div class="middle">
+                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                    </div>
+                </a>                                  
+                              </div>
+                <div class="p-inner">
+                    <h4>Videography</h4>
+                </div>                                         
+                            </div>
+
+
+                            <div class="single-portfolio col-sm-4 all mockup">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+
+                    <a href="photographers.html" target="_blank">              
+
+                       <img class="image img-fluid" src="images/wedding.jpg" alt="">
+                    </a>
+                       
+                                </div>
+                  <a href="images/wedding.jpg" class="img-pop-up">  
+                    <div class="middle">
+                      <div class="text align-self-center d-flex">
+                        <img src="images/preview.png" alt=""></div>
+                    </div>
+                </a>                                  
+                              </div>
+
+
+                <div class="p-inner">
+                    <h4>Weddings</h4>
+                  
+                </div>                                         
+                            </div>   
+
+
+                            <div class="single-portfolio col-sm-4 all packaging">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+
+                    <a href="photographers.html" target="_blank">              
+
+                                   <img class="image img-fluid" src="images/portraits.jpg" alt="">
+
+                    </a>               
+                                </div>
+                  <a href="images/portraits.jpg" class="img-pop-up">  
+                    <div class="middle">
+                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                    </div>
+                  </a> 
+                                  
+                              </div>
+                                <div class="p-inner">
+                                    <h4>Portraits</h4>
+                                    
+                                </div>
+                            </div>
+
+                             <div class="single-portfolio col-sm-4 all packaging">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+
+                    <a href="photographers.html" target="_blank">              
+
+                                   <img class="image img-fluid" src="images/sports.jpg" alt="">
+
+
+                    </a>
+                                </div>
+                  <a href="images/sports.jpg" class="img-pop-up">  
+                    <div class="middle">
+                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                    </div>
+                  </a> 
+                                  
+                              </div>
+                                <div class="p-inner">
+                                    <h4>Sports</h4>
+                                    
+                                </div>
+                            </div>
+
+                             <div class="single-portfolio col-sm-4 all packaging">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+
+                    <a href="photographers.html" target="_blank">              
+
+                                   <img class="image img-fluid" src="images/wildlife.jpg" alt="">
+
+                    </a>              
+
+                                </div>
+                  <a href="images/wildlife.jpg" class="img-pop-up">  
+                    <div class="middle">
+                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                    </div>
+                  </a> 
+                                  
+                              </div>
+                                <div class="p-inner">
+                                    <h4>Wildlife</h4>
+                                    
+                                </div>
+                            </div>
+
+                             <div class="single-portfolio col-sm-4 all packaging">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+
+                    <a href="photographers.html" target="_blank">              
+
+                                   <img class="image img-fluid" src="images/landscape.jpg" alt="">
+                    </a>               
+                                </div>
+                  <a href="images/landscape.jpg" class="img-pop-up">  
+                    <div class="middle">
+                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                    </div>
+                  </a> 
+                                  
+                              </div>
+                                <div class="p-inner">
+                                    <h4>Landscape</h4>
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
 
 
   </div>  
@@ -168,6 +322,22 @@
     </footer>
 
 <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
+    authDomain: "pak-hci.firebaseapp.com",
+    databaseURL: "https://pak-hci.firebaseio.com",
+    projectId: "pak-hci",
+    storageBucket: "pak-hci.appspot.com",
+    messagingSenderId: "714721382084",
+    appId: "1:714721382084:web:ce0e4e9e51394a10"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script>
   function validateForm() {
   var name =  document.getElementById('name').value;
   var email =  document.getElementById('email').value;
@@ -201,12 +371,26 @@
  
   if (message == "") {
       document.getElementById('status').innerHTML = "Message cannot be empty";
-      return false;
+      return false; 
   }
-  document.getElementById('status').innerHTML = "Sending...";
-  document.getElementById('contact-form').submit();
+  else{
+      //check if user is signed in
+        firebase.auth().onAuthStateChanged(user=>{
+              if(user){
+                    console.log('welcome');
+                     document.getElementById('status').innerHTML = "Sending...";
+                     document.getElementById('contact-form').submit();
+                      }
+                        else {
+                          window.alert("You must login first")
+                            console.log('null');
+                              }
+
+                                                });  
 
   }
+
+ }
 </script>
 
 

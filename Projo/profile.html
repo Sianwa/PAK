@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Profile</title>
+
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/flexslider.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/global.css">
+   <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+
+<style>
+	
+	.wrapper{
+		 display: flex;
+   		 width: 100%;
+   		 align-items: stretch;
+
+	}
+	 #fixed {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       text-align: center;
+     }
+</style>
+
+</head>
+
+
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+
+
+ <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
+
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="landingPage.html">PAK</a>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#section-services">How it Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="#section-categories">Categories</a></li>
+            <button type="button" class="btn btn-light" onclick="googleSignin()">
+                Sign In</button>
+
+                <form  class="form-inline my-2 my-lg-0" id="user_name" >
+                     <span style="padding-left: 100px; color: #ffff; padding-right: 20px;" class="navbar-text">You are Logged In</span>
+                      <button " type="button" class="btn btn-light" onclick="googleSignout()">Logout</button>
+                 </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <section  class="site-section" id="section-contact">
+  
+
+  </section>   
+<!-------------------------------------section----------------------------------->
+<section class ="site-section" id="section-categories">
+	<div class ="wrapper"  > 
+		<!----navbar----->
+		<nav id = "sidebar" >
+			 <div class="sidebar-header">
+            <h3>Welcome</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="EditAcc.html">Profile Settings</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+	</div>
+</section>
+
+<!-------------------Section ---------------------------------------------->
+
+
+
+<footer class="site-footer" id ="fixed">
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-md-12 text-center">
+            <p>
+              <a href="#" class="social-item"><span class="icon-facebook2"></span></a>
+              <a href="#" class="social-item"><span class="icon-twitter"></span></a>
+              <a href="#" class="social-item"><span class="icon-instagram2"></span></a>
+              <a href="#" class="social-item"><span class="icon-linkedin2"></span></a>
+              <a href="#" class="social-item"><span class="icon-vimeo"></span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
+    authDomain: "pak-hci.firebaseapp.com",
+    databaseURL: "https://pak-hci.firebaseio.com",
+    projectId: "pak-hci",
+    storageBucket: "pak-hci.appspot.com",
+    messagingSenderId: "714721382084",
+    appId: "1:714721382084:web:ce0e4e9e51394a10"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  //check if user is signed in
+        firebase.auth().onAuthStateChanged(user=>{
+              if(user){
+                   //check if user is signed in
+                document.getElementById('user_name').style.display = "block"; 
+                
+
+                      }
+                        else {
+                            console.log('null');
+                             document.getElementById('user_name').style.display = "none"; 
+                            
+
+                              }
+
+                                                });  
+function googleSignin() {
+   firebase.auth()
+   
+   .signInWithPopup(provider).then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+    
+      console.log(token)
+      console.log(user)
+   }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    
+      console.log(error.code)
+      console.log(error.message)
+   });
+}
+
+function googleSignout() {
+   firebase.auth().signOut()
+  
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')  
+   });
+}
+
+</script>
+
+
+</body>
+</html>
