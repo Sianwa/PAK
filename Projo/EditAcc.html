@@ -104,7 +104,8 @@
   firebase.initializeApp(firebaseConfig);
       
       function updateFirebase(){
-          const fb = firebse.database().ref()
+          
+    /*      const fb = firebse.database().ref()
           fname= document.getElementById('fname').value
           lname= document.getElementById('lname').value
           com= document.getElementById('com').value
@@ -115,6 +116,15 @@
           data = {fname, lname, com, bio, email, uname, pass}
           
           fb.child('users/').update(data);
+          */
+          email= document.getElementById('email').value
+          var user = firebase.auth().currentUser;
+
+user.updateEmail(email).then(function() {
+  // Update successful.
+}).catch(function(error) {
+  // An error happened.
+});
       }
     </script>
     </body>
