@@ -78,7 +78,7 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="submit" name="save" class="btn btn-primary" value="Save Changes" sendMessage()>
+              <button onclick= "updateFirebase()">Update</button>
               <span></span>
               <input type="reset" name="cancel" class="btn btn-default" value="Cancel">
             </div>
@@ -102,6 +102,20 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+      
+      function updateFirebase(){
+          const fb = firebse.database().ref()
+          fname= document.getElementById('fname').value
+          lname= document.getElementById('lname').value
+          com= document.getElementById('com').value
+          bio= document.getElementById('bio').value
+          email= document.getElementById('email').value
+          uname= document.getElementById('uname').value
+          pass= document.getElementById('pass').value
+          data = {fname, lname, com, bio, email, uname, pass}
+          
+          fb.child('users/').update(data);
+      }
     </script>
     </body>
 </html>
