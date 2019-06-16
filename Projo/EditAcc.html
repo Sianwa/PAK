@@ -48,17 +48,12 @@
               
      function closeAcc(){     
 
-admin.auth().deleteUser(uid)
-  .then(function() {
-    console.log('Successfully deleted user');
-    location.replace("landingPage.html#section-home");
-  })
-  .catch(function(error) {
-    console.log('Error deleting user:', error);
-  });
+var user = firebase.auth().currentUser;
+user.delete().then(function() {
+location.replace("landingPage.html#section-home");
+}).catch(function(error) {
 
-//location.replace("landingPage.html#section-home");
-
+});
          
      }
        
