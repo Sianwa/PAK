@@ -3,7 +3,7 @@
 include 'connect.php';
 include 'header.php';
  
-echo '<h3>Sign In</h3>';
+//echo '<h3>Sign In</h3>';
  
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
@@ -16,7 +16,10 @@ else
     {
         /*the form hasn't been posted yet, display it
           note that the action="" will cause the form to post to the same page it is on */
-        echo '<form method="post" action="">
+        echo '
+        <div class="table-users">
+        <div class="header">SIGN IN</div>
+        <form method="post" action="">
         <table align="centre">
         <tr>
         <td>Username: <br><input type="text" name="user_name" /></td>
@@ -28,6 +31,7 @@ else
         <td><input type="submit" value="Sign in" /></td>
         </tr>
         </table>
+        </div>
         </form>';
     }
     else

@@ -3,7 +3,7 @@ include 'connect.php';
 include 'header.php';
 
 
-echo '<h2>Create a Topic</h2>';
+//echo '<h2>Create a Topic</h2>';
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 {
     //the user is signed in
@@ -37,6 +37,8 @@ if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
             {
          
                 echo '<form method="post" action="">
+                <div class="table-users">
+                <div class="header">CREATE TOPIC</div>
                 <table>
                 <tr>
                 <td>Subject: <br><input type="text" name="topic_subject" /></td>
@@ -141,7 +143,7 @@ if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 else
 {
     //the user is not signed in
-    echo 'Sorry, you have to be <a href="signin.php">signed in</a> to create a topic.';
+    echo 'Sorry, you have to be <a href="/PAK-master/Projo/forum/signin.php">signed in</a> to create a topic.';
 }
 
 

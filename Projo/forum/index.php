@@ -27,7 +27,9 @@ else
     {
         //prepare the table
         
-        echo '<table border="1">
+        echo '<div class="table-users">
+              <div class="header">FORUM</div>
+              <table>
               <tr>
                 <th>Category</th>
                 <th>Last topic</th>
@@ -46,7 +48,8 @@ else
             echo '</tr>';
         }
         
-        echo '</table>';
+        echo '</div>
+              </table>';
         
     }
 }

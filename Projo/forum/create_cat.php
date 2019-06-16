@@ -2,7 +2,7 @@
 include 'connect.php';
 include 'header.php';   
     
-    echo '<h2>Create a Category</h2>';
+    //echo '<h2>Create a Category</h2>';
     
     //if a user is signed in 
     if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
@@ -13,6 +13,8 @@ include 'header.php';
             {
             //the form hasn't been posted yet, display it    
             echo '<form method="post" action="">
+            <div class="table-users">
+            <div class="header">CREATE A CATEGORY</div>
             <table align= "centre">
             <tr>        
             <td>Category name: <br><input type="text" name="cat_name" /></td>
@@ -49,7 +51,7 @@ include 'header.php';
     else
     {
         //the user is not signed in     
-        echo 'Sorry, you have to be <a href="signin.php">signed in</a> to create a topic.';            
+        echo 'Sorry, you have to be <a href="/PAK-master/Projo/forum/signin.php">signed in</a> to create a topic.';            
     }
 
 

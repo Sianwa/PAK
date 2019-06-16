@@ -4,10 +4,12 @@ session_start();
 
 <html>
 <head>
+    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="A short description." />
     <meta name="keywords" content="put, keywords, here" />
     <title>Photographers Forum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="forum.css" type="text/css">
 </head>
 <body>

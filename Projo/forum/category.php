@@ -25,13 +25,7 @@ if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true)
                 //display category data
                 while($row = mysqli_fetch_assoc($result))
                 {
-                    echo '
-                    <ul class="breadcrumb">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="category.php?id='.$row['cat_id'].'">"'.$row['cat_name'].'"</a></li>
-                  </ul>';
                     echo '<h2>Topics in "' . $row['cat_name'] . '" category</h2>';
-                    
                 }
                 
                 //do a query for the topics
@@ -50,7 +44,10 @@ if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true)
                     else
                     {
                         //prepare the table
-                        echo '<table border="1">
+                        echo '
+                        <div class="table-users">
+                        <div class="header">TOPICS</div>
+                        <table>
                         <tr>
                         <th>Topic</th>
                         <th>Created at</th>

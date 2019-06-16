@@ -4,7 +4,7 @@ include 'connect.php';
 include 'header.php';
 
 
-echo '<h3>Sign Up</h3>';
+//echo '<h3>Sign Up</h3>';
  
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
@@ -12,6 +12,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
       note that the action="" will cause the form to post to the same page it is on */
     echo'
         <form method="post" action="">
+        <div class="table-users">
+        <div class="header">FORUM</div>
         <table align = "centre">
         <tr>
         <td>Username: <br><input type="text" name="user_name" /></td>
@@ -29,6 +31,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
         <td><input type="submit" value="Sign Up" /></td>
         </tr>
         </table>
+        </div>
      </form>';
 }
 else
@@ -86,8 +89,6 @@ else
             echo '<li>' . $value . '</li>'; /* this generates a nice error list */
         }
         echo '</ul>';
-        echo '<br>
-        Click <a href="signup.php">here</a> to try again.';
     }
     else
     {
