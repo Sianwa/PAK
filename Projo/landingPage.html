@@ -9,9 +9,11 @@
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/global.css">
    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
@@ -32,11 +34,13 @@
             <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-services">How it Works</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-categories">Categories</a></li>
-            <li class="nav-item"><a class="nav-link" href="forum/index.php">Photographer's Forum</a></li>
-            <button type="button" class="btn btn-light" onclick="googleSignin()">
+            <button id="log" type="button" class="btn btn-light" onclick="googleSignin()">
                 Sign In</button>
                 <form  class="form-inline my-2 my-lg-0" id="user_name" >
-                     <a href="profile.html" style="padding-left: 100px; color: #ffff; padding-right: 20px;" class="navbar-text">You are Logged In</a>
+                       <span class="icon">
+                        <span  style="font-size: 40px;color: #ffff;" 
+                        class="icon-user2" href="profile.html"></span>
+                       </span>
                       <button type="button" class="btn btn-light" onclick="googleSignout()">Logout</button>
                  </form>
           </ul>
@@ -201,7 +205,7 @@
           <div class="col-md-10 text-center">
             <h1 style="color: #ffff" class="site-heading site-animate"> Photographer? <strong>Sign up here</strong></h1>
             <p class="lead site-subheading mb-4 site-animate">Be part of the PAK community.We promise it will be worth your while.</p>
-            <p><a onclick="googleSignin()" class="smoothscroll btn btn-primary px-4 py-3">Sign up</a></p>
+            <p><a href="login.html" class="smoothscroll btn btn-primary px-4 py-3">Sign up</a></p>
           </div>
         </div>
       </div>
@@ -249,11 +253,14 @@
               if(user){
                    //check if user is signed in
                 document.getElementById('user_name').style.display = "block"; 
+                document.getElementById('log').style.display = "none"; 
+
 
                       }
                         else {
                             console.log('null');
                              document.getElementById('user_name').style.display = "none"; 
+                             document.getElementById('log').style.display = "block"; 
 
                               }
 
