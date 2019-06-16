@@ -1,10 +1,26 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <style>
+    .container { 
+  height: 200px;
+  position: relative;
+  border: 3px solid green; 
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+    </style>
 </head>
 <body style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg');">
     
-        
+   
       <h1 align="center" >Close Account</h1>
     <br><br>
     <h3 align="center">Clicking the button below will terminate your PAK user account. However your forum account will still be active.</h3>
@@ -12,6 +28,7 @@
     <button class="btn-danger btn-lg" onclick="closeAcc()" >Close Account</button>
     </div>
 <p id="demo"></p>
+
     
    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     
@@ -29,18 +46,14 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
               
-     function closeAcc(){
-         
-location.replace("landingPage.html#section-home");
-         
-       
-/*
+     function closeAcc(){     
+
 var user = firebase.auth().currentUser;
 user.delete().then(function() {
-document.getElementById("demo").innerHTML = "Hello World";
+location.replace("landingPage.html#section-home");
 }).catch(function(error) {
-document.getElementById("demo").innerHTML = "Hello World";
-});*/
+location.replace("landingPage.html#section-home");
+});
          
      }
        
