@@ -14,7 +14,8 @@ session_start();
 <h1>Photographers Forum</h1>
     <div id="wrapper">
         <div id="menu">
-        <a class="item" href="index.php">Home</a> -
+        <a class="item" href="../landingPage.html">Back to PAK</a> -
+        <a class="item" href="index.php">Forum Home</a> -
         <a class="item" href="create_topic.php">Create a topic</a>
             <?php
                 if(isset($_SESSION['user_level']) && $_SESSION['user_level']==1)
@@ -22,6 +23,7 @@ session_start();
                     echo '- <a class="item" href="create_cat.php">Create a category</a>';
                 }                
             ?>
+  
     <div id="userbar">
         <?php
     if(isset($_SESSION['signed_in']))
