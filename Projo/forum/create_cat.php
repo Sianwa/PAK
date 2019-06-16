@@ -51,7 +51,7 @@ include 'header.php';
     else
     {
         //the user is not signed in     
-        echo 'Sorry, you have to be <a href="/PAK-master/Projo/forum/signin.php">signed in</a> to create a topic.';            
+        echo 'Sorry, you have to be <a href="signin.php">signed in</a> to create a topic.';            
     }
 
 

@@ -28,7 +28,7 @@ else
         <td>Password: <br><input type="password" name="user_pass"></td>
         </tr>
         <tr>
-        <td><input type="submit" value="Sign in" /> or click <a href="signup.php">here<a/> to Sign Up.</td> 
+        <td><input type="submit" value="Sign in" /> or <a href="signup.php">Sign Up<a/>.</td> 
         </tr>
         </table>
         </div>

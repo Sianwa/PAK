@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
         <td>E-mail: <br><input type="email" name="user_email"></td>
         </tr>
         <tr>
-        <td><input type="submit" value="Sign Up" /></td>
+        <td><input type="submit" value="Sign Up" /> or <a href="signin.php">Sign In</a>.</td>
         </tr>
         </table>
         </div>
