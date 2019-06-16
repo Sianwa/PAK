@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
@@ -39,7 +40,7 @@
       <div class="container">
         <div class="row intro-text align-items-center justify-content-center">
          
-            <h1 class="site-heading site-animate">Hi,I'm <strong>Feni Oni</strong></h1>
+            <h1 class="site-heading site-animate">Hi,I'm <p id="pname" style="font-weight: bold"></p></h1>
                       
         </div>
       </div>
@@ -49,11 +50,11 @@
      <section  class="site-section" id="section-contact">
       <div class="container">
         <div class="section-heading text-center col-md-12">
-              <h2 style="color: #ffff"><strong>About Me</strong></h2>
+              <h2 style="color: #ffff;"><strong>About Me</strong></h2>
             </div>
         <div class="row intro-text align-items-center justify-content-center">
           <div class="col-md-10 text-center">
-            <p style ="color: #ffff">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <p style ="color: #ffff" id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
           </div>
         </div>
       </div>
@@ -334,6 +335,22 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+//display name
+
+var firebaseRef= firebase.database().ref().child("Users/01/name");
+firebaseRef.on('value',function(datasnapshot){
+
+    document.getElementById('pname').innerText = datasnapshot.val();
+    console.log(datasnapshot.val());
+});
+
+var fireRef= firebase.database().ref().child("Users/01/bio");
+fireRef.on('value',function(datasnapshot){
+
+    document.getElementById('bio').innerText = datasnapshot.val();
+    console.log(datasnapshot.val());
+});
 </script>
 
 
