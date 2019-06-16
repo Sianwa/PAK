@@ -2,12 +2,15 @@
 <html>
 <head>
 	<title>Discover Categories</title>
- <!--<link rel="stylesheet" href="landing.css">-->
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/flexslider.css">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
@@ -27,7 +30,15 @@
             <li class="nav-item"><a class="nav-link" href="landingPage.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="landingPage.html#section-services">How it Works</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-categories">Categories</a></li>
-            <li class="nav-item"><a class="nav-link" href="forum/index.php">Photographer's Forum</a></li>
+            <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 MORE
+                 </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="Help.html">Help and Support</a>
+          <a class="dropdown-item" href="forum/index.php">Community Forum</a>
+        </div>
+      </li>
           </ul>
         </div>
       </div>
@@ -39,7 +50,7 @@
           <div class="col-md-10 text-center">
             <h1 style="color: #ffff" class="site-heading site-animate"> Hire <strong>the best </strong>freelance photographers</h1>
             <p class="lead site-subheading mb-4 site-animate">They are now an email away.Hire Talent Today.</p>
-            <p><a href="login.html" class="smoothscroll btn btn-primary px-4 py-3">Sign up</a></p>
+            <p><a style="color: #ffff" onclick="googleSignin()" class="smoothscroll btn btn-primary px-4 py-3">Sign up</a></p>
           </div>
         </div>
       </div>
@@ -224,6 +235,72 @@
         </div>
       </div>
     </footer>
+
+    <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
+    authDomain: "pak-hci.firebaseapp.com",
+    databaseURL: "https://pak-hci.firebaseio.com",
+    projectId: "pak-hci",
+    storageBucket: "pak-hci.appspot.com",
+    messagingSenderId: "714721382084",
+    appId: "1:714721382084:web:ce0e4e9e51394a10"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  //check if user is signed in
+        firebase.auth().onAuthStateChanged(user=>{
+              if(user){
+                   //check if user is signed in
+                document.getElementById('user_name').style.display = "block"; 
+                document.getElementById('log').style.display = "none"; 
+
+
+                      }
+                        else {
+                            console.log('null');
+                             document.getElementById('user_name').style.display = "none"; 
+                             document.getElementById('log').style.display = "block"; 
+
+                              }
+
+                                                });  
+
+
+function googleSignin() {
+   firebase.auth()
+   
+   .signInWithPopup(provider).then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+    
+      console.log(token)
+      console.log(user)
+   }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    
+      console.log(error.code)
+      console.log(error.message)
+   });
+}
+
+function googleSignout() {
+   firebase.auth().signOut()
+  
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')  
+   });
+}
+</script>
 
 
 </body>
