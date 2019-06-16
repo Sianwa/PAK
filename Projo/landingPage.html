@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/global.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
@@ -34,6 +38,16 @@
             <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-services">How it Works</a></li>
             <li class="nav-item"><a class="nav-link" href="#section-categories">Categories</a></li>
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 MORE
+                 </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="Help.html">Help and Support</a>
+          <a class="dropdown-item" href="forum/index.php">Community Forum</a>
+        </div>
+      </li>
+
             <button id="log" type="button" class="btn btn-light" onclick="googleSignin()">
                 Sign In</button>
                 <form  class="form-inline my-2 my-lg-0" id="user_name" >
@@ -54,7 +68,7 @@
           <div class="col-md-10 text-center">
             <h1 class="site-heading site-animate">HIRE <strong>FREELANCE PHOTOGRAPHERS</strong><BR>GET WORK DONE</BR></h1>
             <p class="lead site-subheading mb-4 site-animate">Photographers are now an email away.Hire Talent Today.</p>
-            <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">Get Started</a></p>
+            <p><a href="Discover.html" class="smoothscroll btn btn-primary px-4 py-3">Get Started</a></p>
           </div>
         </div>
       </div>
@@ -205,7 +219,7 @@
           <div class="col-md-10 text-center">
             <h1 style="color: #ffff" class="site-heading site-animate"> Photographer? <strong>Sign up here</strong></h1>
             <p class="lead site-subheading mb-4 site-animate">Be part of the PAK community.We promise it will be worth your while.</p>
-            <p><a href="login.html" class="smoothscroll btn btn-primary px-4 py-3">Sign up</a></p>
+            <p><a style="color: #ffff" onclick="googleSignin()" class="smoothscroll btn btn-primary px-4 py-3">Sign up</a></p>
           </div>
         </div>
       </div>
