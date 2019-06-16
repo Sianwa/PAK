@@ -1,5 +1,13 @@
 <html>
 <head>
+    <style>
+        h1{
+            color: aliceblue;
+        }
+        h3{
+            color: aliceblue;
+        }
+    </style>
    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     
    <script>
@@ -19,28 +27,24 @@
     </script>
     
      <script type="text/javascript">  
-function matchpass(){  
-var firstpassword=document.EA.pass.value;  
-var secondpassword=document.EA.cpass.value;  
-  
-if(firstpassword==secondpassword){  
-return true;  
-}  
-else{  
-alert("password must be same!");  
-return false;  
-}  
-}  
+//var firstpassword=document.EA.pass.value;  
+
      </script> 
     
     
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
-<body>
-      <h1 align="center">Close Account</h1>
+<body style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg');">
+    
+        
+      <h1 align="center" >Close Account</h1>
     <br><br>
     <h3 align="center">Clicking the button below will terminate your PAK user account. However your forum account will still be active.</h3>
-    
-
+    <div align="center">
+    <button class="btn-danger btn-lg" onclick= "closeAcc()" >Close Account</button>
+    </div>
+        
+<button onClick></button>
+      
     </body>
 </html>
