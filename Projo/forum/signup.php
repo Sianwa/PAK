@@ -86,6 +86,8 @@ else
             echo '<li>' . $value . '</li>'; /* this generates a nice error list */
         }
         echo '</ul>';
+        echo '<br>
+        Click <a href="signup.php">here</a> to try again.';
     }
     else
     {
