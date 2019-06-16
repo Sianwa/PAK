@@ -1,74 +1,8 @@
 <html>
 <head>
-    <style>
-    </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-</head>
-<body>
-      <div class="container">
-    <h1>Edit Profile</h1>
-  	<hr>
-	<div class="row">
-      
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
+   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     
-          <i class="fa fa-coffee"></i>
-          
-        </div>
-        <h3>Personal info</h3>
-        
-        <form class="form-horizontal" method="post" action="" onsubmit="return matchpass()" name="EA">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" id="email" name="email" type="text" value="">
-            </div>
-          </div>
-  
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <input class="form-control" id="pass" name="pass" type="password" value="" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" id="cpass" name="cpass" type="password" value="" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <button onclick= "updateFirebase()">Update</button>
-              <span></span>
-             
-            </div>
-          </div>
-        </form>
-      </div>
-  </div>
-
-<hr>
-    
-    <script type="text/javascript">  
-function matchpass(){  
-var firstpassword=document.EA.pass.value;  
-var secondpassword=document.EA.cpass.value;  
-  
-if(firstpassword==secondpassword){  
-return true;  
-}  
-else{  
-alert("password must be same!");  
-return false;  
-}  
-}  
-</script> 
-    
-      <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-  <script>
+   <script>
       // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCeSljgY83YrGTifHqFExwB92j85Wl1aso",
@@ -81,31 +15,32 @@ return false;
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-      
-      function updateFirebase(){
-          
-           pass= document.getElementById('pass').value
-           cpass= document.getElementById('cpass').value
-          email= document.getElementById('email').value
-          var user = firebase.auth().currentUser;
 
-user.updateEmail(email).then(function() {
-  // Update successful.
-}).catch(function(error) {
-  // An error happened.
-});
-    
-          var user = firebase.auth().currentUser;
-var newPassword = getASecureRandomPassword();
-
-user.updatePassword(pass).then(function() {
-  // Update successful.
-}).catch(function(error) {
-  // An error happened.
-});
-          
-      }
     </script>
     
+     <script type="text/javascript">  
+function matchpass(){  
+var firstpassword=document.EA.pass.value;  
+var secondpassword=document.EA.cpass.value;  
+  
+if(firstpassword==secondpassword){  
+return true;  
+}  
+else{  
+alert("password must be same!");  
+return false;  
+}  
+}  
+     </script> 
+    
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+      <h1 align="center">Close Account</h1>
+    <br><br>
+    <h3 align="center">Clicking the button below will terminate your PAK user account. However your forum account will still be active.</h3>
+    
+
     </body>
 </html>
