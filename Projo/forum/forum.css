@@ -75,7 +75,7 @@ td {
 /* Begin font styles */
 h1, #footer {
     font-family: Arial;
-    color: #F1F3F1;
+    color: #2c3e50;
 }
  
 h3 {margin: 0; padding: 0;}
@@ -319,3 +319,4 @@ ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
 }
+
