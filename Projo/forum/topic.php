@@ -7,12 +7,13 @@ if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true)
     //the user is signed in
     if($_SERVER['REQUEST_METHOD'] != 'POST')
     {   
-        $sql ="SELECT topics.topic_id, 
+        $sql ="SELECT topics.topic_id, categories.cat_id, categories.cat_name,
         topics.topic_subject, posts.post_topic, posts.post_content, 
         posts.post_date, posts.post_by, users.user_id, 
-        users.user_name FROM posts LEFT JOIN users ON
-         posts.post_by = users.user_id INNER JOIN topics on 
-         topics.topic_id = posts.post_topic 
+        users.user_name FROM posts 
+        LEFT JOIN users ON posts.post_by = users.user_id 
+        INNER JOIN topics on topics.topic_id = posts.post_topic
+        INNER JOIN categories ON categories.cat_id = topics.topic_cat
          WHERE posts.post_topic = '" . mysqli_real_escape_string($con, $_GET['id'])."';";       
         $result=mysqli_query($con,$sql);
         $data   = $result->fetch_all(MYSQLI_ASSOC);
@@ -36,6 +37,12 @@ if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true)
                 //prepare the table        
                 foreach($data as $row)
                 {
+                    echo '
+                    <ul class="breadcrumb">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="category.php?id='.$row['cat_id'].'">"'.$row['cat_name'].'"</a></li>
+                    <li><a href="category.php?id='.$row['topic_id'].'">"'.$row['topic_subject'].'"</a></li>
+                  </ul>';
                 echo  '
                 <div class="table-users">
                 <div class="header">FORUM</div>
@@ -77,7 +84,7 @@ if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true)
     else
     {
     //the user is not signed in
-    echo 'Sorry, you have to be <a href="/Projo/forum/signin.php">signed in</a> to create a topic.';
+    echo 'Sorry, you have to be <a href="signin.php">signed in</a> to create a topic.';
     }
 }
 

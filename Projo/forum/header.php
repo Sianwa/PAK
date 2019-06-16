@@ -16,7 +16,9 @@ session_start();
 <h1>Photographers Forum</h1>
     <div id="wrapper">
         <div id="menu">
-        <a class="item" href="../landingPage.html">Back to PAK</a> -
+        <a class="item" href="sessiondestroy.php">Back to PAK</a> -
+
+
         <a class="item" href="index.php">Forum Home</a> -
         <a class="item" href="create_topic.php">Create a topic</a>
             <?php

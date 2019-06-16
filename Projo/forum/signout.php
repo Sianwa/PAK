@@ -9,7 +9,7 @@ echo '<h3>Signed Out</h3>';
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 {
     session_unset();
-    echo 'Succesfully signed out, you can go back to the<a href="index.php">Homepage</a> if you want.';
+    echo 'Succesfully signed out, you can go back to the <a href="index.php">Homepage</a> if you want.';
 }
 
 // destroy the session 
