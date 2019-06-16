@@ -45,7 +45,7 @@ include 'header.php';
             }
         }
         else{
-            echo 'Only Admins are allowed to create a topic.';
+            echo 'Only Admins are allowed to create a topic. Please <a href="index.php">go back</a>.';
         }
     }
     else

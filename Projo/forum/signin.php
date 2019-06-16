@@ -28,7 +28,7 @@ else
         <td>Password: <br><input type="password" name="user_pass"></td>
         </tr>
         <tr>
-        <td><input type="submit" value="Sign in" /></td>
+        <td><input type="submit" value="Sign in" /> or click <a href="signup.php">here<a/> to Sign Up.</td> 
         </tr>
         </table>
         </div>
@@ -62,6 +62,7 @@ else
                 echo '<li>' . $value . '</li>'; /* this generates a nice error list */
             }
             echo '</ul>';
+            echo 'Please <a href="signin.php">try again</a>.';
         }
         else
         {
@@ -93,7 +94,7 @@ else
                 //2. the query returned an empty result set, the credentials were wrong
                 if(mysqli_num_rows($result) == 0)
                 {
-                    echo 'You have supplied a wrong user/password combination. Please try again.';
+                    echo 'You have supplied a wrong user/password combination. Please <a href="signin.php">try again</a>.';
                 }
                 else
                 {
