@@ -87,19 +87,6 @@ return false;
       
       function updateFirebase(){
           
-    /*      const fb = firebse.database().ref()
-          fname= document.getElementById('fname').value
-          lname= document.getElementById('lname').value
-          com= document.getElementById('com').value
-          bio= document.getElementById('bio').value
-          email= document.getElementById('email').value
-          uname= document.getElementById('uname').value
-          pass= document.getElementById('pass').value
-          data = {fname, lname, com, bio, email, uname, pass}
-          
-          fb.child('users/').update(data);
-          */
-          
            pass= document.getElementById('pass').value
            cpass= document.getElementById('cpass').value
           email= document.getElementById('email').value
@@ -114,7 +101,7 @@ user.updateEmail(email).then(function() {
           var user = firebase.auth().currentUser;
 var newPassword = getASecureRandomPassword();
 
-user.updatePassword(newPassword).then(function() {
+user.updatePassword(pass).then(function() {
   // Update successful.
 }).catch(function(error) {
   // An error happened.
