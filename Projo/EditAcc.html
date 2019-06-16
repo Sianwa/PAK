@@ -21,7 +21,7 @@
         </div>
         <h3>Personal info</h3>
         
-        <form class="form-horizontal" method="post" action="" id="EditAcc">
+        <form class="form-horizontal" method="post" action="" onsubmit="return matchpass()" name="EA">
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
@@ -46,14 +46,30 @@
             <div class="col-md-8">
               <button onclick= "updateFirebase()">Update</button>
               <span></span>
-              <input type="reset" name="cancel" class="btn btn-default" value="Cancel">
+             
             </div>
           </div>
         </form>
       </div>
   </div>
-</div>
+
 <hr>
+    
+    <script type="text/javascript">  
+function matchpass(){  
+var firstpassword=document.EA.pass.value;  
+var secondpassword=document.EA.cpass.value;  
+  
+if(firstpassword==secondpassword){  
+return true;  
+}  
+else{  
+alert("password must be same!");  
+return false;  
+}  
+}  
+</script> 
+    
       <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
   <script>
       // Your web app's Firebase configuration
@@ -83,6 +99,9 @@
           
           fb.child('users/').update(data);
           */
+          
+           pass= document.getElementById('pass').value
+           cpass= document.getElementById('cpass').value
           email= document.getElementById('email').value
           var user = firebase.auth().currentUser;
 
@@ -91,7 +110,18 @@ user.updateEmail(email).then(function() {
 }).catch(function(error) {
   // An error happened.
 });
+    
+          var user = firebase.auth().currentUser;
+var newPassword = getASecureRandomPassword();
+
+user.updatePassword(newPassword).then(function() {
+  // Update successful.
+}).catch(function(error) {
+  // An error happened.
+});
+          
       }
     </script>
+    
     </body>
 </html>
